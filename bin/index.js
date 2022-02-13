@@ -33,6 +33,7 @@ page.onLoadFinished = function (status) {
         page.includeJs("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", function () {
             try {
                 // console.log("Included Jquery");
+                console.log(page.url);
                 const url = page.url.substring(0, suburl[index].length);
                 if (page.url === "https://www.google.com/") {
                     phantom.exit(1);
