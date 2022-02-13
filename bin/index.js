@@ -1,4 +1,4 @@
-console.log("start");
+// console.log("start");
 var page = require("webpage").create(), userName, passWd;
 var system = require('system');
 
@@ -28,7 +28,7 @@ page.onConsoleMessage = function (msg) {
 
 page.onLoadFinished = function (status) {
     if (status === "success") {
-        page.render("test.png");
+        // page.render("test.png");
         // console.log(page.content);
         page.includeJs("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", function () {
             try {
