@@ -11,7 +11,8 @@ def readFile(fileName):
 def prepareData(data):
     data = data.split("\n")
     data = [_.split(":::") for _ in data]
-    del data[-1:]
+    if (data[-1:] == ['']):
+        del data[-1:]
     return data
 
 if __name__ == "__main__":
@@ -23,6 +24,7 @@ if __name__ == "__main__":
     dataFileName = sys.argv[1]
     data = readFile(dataFileName)
     data = prepareData(data)
+    print(data)
     
     #Create multithread
     #p = Popen("", shell=True, stdin=PIPE, stdout=PIPE)  

@@ -23,7 +23,7 @@ page.onConsoleMessage = function(msg) {
 
 page.onLoadFinished = function(status) {  
     
-    // page.render('test.png'); 
+    page.render('test.png'); 
     console.log(page.url);
     if (page.url === "https://www.google.com/") {
         console.log("Account has accepted");
