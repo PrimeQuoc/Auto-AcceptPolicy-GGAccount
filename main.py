@@ -11,7 +11,7 @@ def readFile(fileName):
 def prepareData(data):
     data = data.split("\n")
     data = [_.split(":::") for _ in data]
-    if (data[-1:] == ['']):
+    if (len(data[-1:]) < 2):
         del data[-1:]
     return data
 
