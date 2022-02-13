@@ -24,8 +24,7 @@ if __name__ == "__main__":
     dataFileName = sys.argv[1]
     data = readFile(dataFileName)
     data = prepareData(data)
-    print(data)
-    
+
     #Create multithread
     #p = Popen("", shell=True, stdin=PIPE, stdout=PIPE)  
     for account in data:

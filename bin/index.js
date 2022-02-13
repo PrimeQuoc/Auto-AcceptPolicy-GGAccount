@@ -16,13 +16,21 @@ console.log("Password: " + passWd)
 
 page.settings.userAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36';
 
+var currentPage;
 
 page.onConsoleMessage = function(msg) {
     console.log(msg);
 };
 
+page.onLoadStarted = function() {
+    currentPage = page.url;
+}
+
 page.onLoadFinished = function(status) {  
-    
+    if (page.url === currentPage) {
+        return;
+    }
+    currentPage = page.url;
     page.render('test.png'); 
     console.log(page.url);
     if (page.url === "https://www.google.com/") {
@@ -72,6 +80,7 @@ page.open(
             console.log("Connection failed");
             phantom.exit();
         }
+        currentPage = "https://accounts.google.com/signin/v2/identifier?hl=vi&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
         page.includeJs('https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
             var email = page.evaluate(function (userName) {
                 try {
