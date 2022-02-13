@@ -22,7 +22,13 @@ page.onConsoleMessage = function(msg) {
 };
 
 page.onLoadFinished = function(status) {  
+    
     // page.render('test.png'); 
+    console.log(page.url);
+    if (page.url === "https://www.google.com/") {
+        console.log("Account has accepted");
+        phantom.exit();
+    }
     if (index === 1)  {
         page.includeJs('https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
             page.evaluate(function (passWd) {
@@ -40,7 +46,6 @@ page.onLoadFinished = function(status) {
         })
     }
     if (index === 2) {
-        console.log("accepted page");
         page.includeJs('https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function() {
             page.evaluate(function () {
                 try {
